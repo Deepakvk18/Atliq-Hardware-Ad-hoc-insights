@@ -263,7 +263,7 @@ Report of the Gross sales amount for the customer “Atliq Exclusive” for each
 #### **Query:**
 ````sql
 SELECT 
-	CONCAT('Q' , QUARTER(date + INTERVAL 3 MONTH)) AS quarter,
+	CONCAT('Q' , QUARTER(date + INTERVAL 4 MONTH)) AS quarter,
     SUM(sold_quantity) AS total_sold_quantity
 FROM gdb023.fact_sales_monthly
 WHERE fiscal_year=2020
@@ -277,10 +277,10 @@ The Fiscal Quarter in which maximum quantities are sold is:
 
 | quarter | total_sold_quantity  | 
 | -------------------- | -----: |
-| Q1      | 8425822    | 
-| Q4      | 5246770    | 
-| Q2      | 3704398    | 
-| Q3      | 3395899     |
+| Q1      | 7005619    | 
+| Q2      | 6649642    | 
+| Q4      | 5042541    | 
+| Q3      | 2075087     |
 
 - It can be seen that in ```Fiscal Quarter 1``` in fiscal year 2020 (Sep'19-Dec'19) has the most quantity sold in the fiscal year 2020.
 <br/><br/>
