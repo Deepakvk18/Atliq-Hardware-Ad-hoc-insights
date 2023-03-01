@@ -21,7 +21,7 @@ However, the management noticed that they do not get enough insights to make qui
         <br/>
 **Result:** <br/>
     <table style="margin: 0 auto; text-align:center;">
-        <th><tr>market</td></th>
+        <tr><td>market</td></tr>
         <tr><td>India</td></tr>
         <tr><td>Indonesia</td></tr>
         <tr><td>Japan</td></tr>
