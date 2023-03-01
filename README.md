@@ -14,23 +14,25 @@ However, the management noticed that they do not get enough insights to make qui
 # Questions To be Answered
 
 ### 1. Provide the list of markets in which customer "Atliq Exclusive" operates its business in the APAC region.
-**Query:**<br/>
-        SELECT DISTINCT market <br/> 
-        FROM gdb023.dim_customer <br/>
-        WHERE customer='Atliq Exclusive' AND region='APAC'; <br/>
-        <br/>
-**Result:** <br/>
-    <table style="margin: 0 auto; text-align:center;">
-        <thead><tr><th>market</th></tr></thead>
-        <tr><td>India</td></tr>
-        <tr><td>Indonesia</td></tr>
-        <tr><td>Japan</td></tr>
-        <tr><td>Philippines</td></tr>
-        <tr><td>South Korea</td></tr>
-        <tr><td>Australia</td></tr>
-        <tr><td>New Zealand</td></tr>
-        <tr><td>Bangladesh</td></tr> 
-    </table>
+
+#### **Query:**
+        ````sql
+        SELECT DISTINCT market
+        FROM gdb023.dim_customer
+        WHERE customer='Atliq Exclusive' AND region='APAC'; 
+        ````
+
+#### **Result:** 
+        |    market     |
+        |---------------|
+        | India         |
+        | Indonesia     |
+        | Japan         |
+        | Philippines   |
+        | South Korea   |
+        | Australia     |
+        | New Zealand   |
+        | Bangladesh    |
     
 
 ### 2. What is the percentage of unique product increase in 2021 vs. 2020? The final output contains these fields, [unique_products_2020 | unique_products_2021 | percentage_chg]
