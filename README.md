@@ -20,7 +20,7 @@ However, the management noticed that they do not get enough insights to make qui
         WHERE customer='Atliq Exclusive' AND region='APAC'; <br/>
         <br/>
 **Result:** <br/>
-    <table>
+    <table style="margin: 0 auto; text-align:center;">
         <th><tr>market</td></th>
         <tr><td>India</td></tr>
         <tr><td>Indonesia</td></tr>
