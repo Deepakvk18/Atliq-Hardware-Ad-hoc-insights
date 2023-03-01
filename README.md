@@ -15,22 +15,21 @@ However, the management noticed that they do not get enough insights to make qui
 
 ### 1. Provide the list of markets in which customer "Atliq Exclusive" operates its business in the APAC region.
 **Query:**<br/>
-    SELECT DISTINCT market <br/> 
-    FROM gdb023.dim_customer <br/>
-    WHERE customer='Atliq Exclusive' AND region='APAC'; <br/>
-**Result** <br/>
+        SELECT DISTINCT market <br/> 
+        FROM gdb023.dim_customer <br/>
+        WHERE customer='Atliq Exclusive' AND region='APAC'; <br/>
+        <br/>
+**Result:** <br/>
     <table>
-      <tr>
-        <td>market</td>
-        <td>India</td>
-        <td>Indonesia</td>
-        <td>Japan</td>
-        <td>Philippines</td>
-        <td>South Korea</td>
-        <td>Australia</td>
-        <td>New Zealand</td>
-        <td>Bangladesh</td>
-      </tr>
+        <th>market</th>
+        <tr>India</tr>
+        <tr>Indonesia</tr>
+        <tr>Japan</tr>
+        <tr>Philippines</tr>
+        <tr>South Korea</tr>
+        <tr>Australia</tr>
+        <tr>New Zealand</tr>
+        <tr>Bangladesh</tr> 
     </table>
     
 
