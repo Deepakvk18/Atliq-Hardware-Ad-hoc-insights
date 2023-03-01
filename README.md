@@ -341,7 +341,7 @@ WHERE rank_order <= 3;
 The top 5 customers who received an average high pre_invoice_discount_pct for the fiscal year 2021 and in the Indian market are:
 
 | division | product_code  | product |  total_sold_quantity | rank_order  |
-| -------------------- | -----| -----: | -------: | -------: |
+| -------------------- | -----| ----- | -------: | -------: |
 | N & S | A6720160103 | AQ Pen Drive 2 IN 1 | 701373 | 1 |
 | N & S | A6818160202 | AQ Pen Drive DRC | 688003 | 2 |
 | N & S | A6819160203 | AQ Pen Drive DRC | 676245 | 3 |
