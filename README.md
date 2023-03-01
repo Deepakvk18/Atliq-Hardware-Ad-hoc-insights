@@ -216,13 +216,12 @@ The top 5 customers who received an average high pre_invoice_discount_pct for th
 SELECT
 	m.fiscal_year,
 	MONTHNAME(date) AS  month,
-    ROUND(SUM(sold_quantity * gross_price * (1 - pre_invoice_discount_pct)) / 1000000, 2) AS gross_sales_amt_in_millions
+    ROUND(SUM(sold_quantity * gross_price) / 1000000, 2) AS gross_sales_amt_in_millions
 FROM gdb023.fact_sales_monthly m 
 	JOIN gdb023.dim_customer c ON m.customer_code=c.customer_code
     JOIN gdb023.fact_gross_price g ON g.fiscal_year=m.fiscal_year AND g.product_code=m.product_code
-    JOIN gdb023.fact_pre_invoice_deductions i ON i.fiscal_year=m.fiscal_year AND m.customer_code=i.customer_code
 WHERE customer='Atliq Exclusive'
-GROUP BY fiscal_month, fiscal_year
+GROUP BY month, fiscal_year
 ORDER BY fiscal_year;
 ````
 
@@ -232,30 +231,30 @@ Report of the Gross sales amount for the customer “Atliq Exclusive” for each
 
 | fiscal_year | month  | gross_sales_amt_in_millions |
 | -------------------- | -----| -----: |
-| 2020      | September       | 4.01  |
-| 2020      | October    | 4.75  |
-| 2020      | November    | 6.71  |
-| 2020      | December    | 4.21  |
-| 2020      | January     | 4.22  |
-| 2020      | February       | 3.70  |
-| 2020      | March    | 0.34  |
-| 2020      | April    | 0.34  |
-| 2020      | May    | 0.70  |
-| 2020      | June     | 1.57  |
-| 2020      | July       | 2.27  |
-| 2020      | August    | 2.42  |
-| 2021      | September    | 10.87  |
-| 2021      | October    | 12.10  |
-| 2021      | November     |  17.97 |
-| 2021      | December       | 11.09 |
-| 2021      | January    | 10.90  | 
-| 2021      | February    |  9.27 |
-| 2021      | March    |  10.66 |
-| 2021      | April     |  6.27  |
-| 2021      | May       |  10.69  |
-| 2021      | June    | 8.99  |
-| 2021      | July    | 10.64  |
-| 2021      | August    | 6.16  |
+| 2020      | September       | 4.50  |
+| 2020      | October    | 5.14  |
+| 2020      | November    | 7.52  |
+| 2020      | December    | 4.83  |
+| 2020      | January     | 4.74  |
+| 2020      | February       | 4.00  |
+| 2020      | March    | 0.38  |
+| 2020      | April    | 0.40  |
+| 2020      | May    | 0.78  |
+| 2020      | June     | 1.70  |
+| 2020      | July       | 2.55  |
+| 2020      | August    | 2.79  |
+| 2021      | September    | 12.35  |
+| 2021      | October    | 13.22 |
+| 2021      | November     | 20.46 |
+| 2021      | December       | 12.94 |
+| 2021      | January    | 12.40  | 
+| 2021      | February    |  10.13 |
+| 2021      | March    |  12.14 |
+| 2021      | April     |  7.31  |
+| 2021      | May       |  12.15  |
+| 2021      | June    | 9.82  |
+| 2021      | July    | 12.09  |
+| 2021      | August    | 7.18 |
 
 <br/><br/>
 
@@ -293,10 +292,9 @@ The Fiscal Quarter in which maximum quantities are sold is:
 WITH customer_revenue AS(
 	SELECT 
 		m.customer_code,
-		SUM((sold_quantity * gross_price) * (1 - pre_invoice_discount_pct)) AS revenue
+		SUM((sold_quantity * gross_price)) AS revenue
 	FROM gdb023.fact_sales_monthly m 
 		JOIN gdb023.fact_gross_price g ON m.product_code=g.product_code AND m.fiscal_year=g.fiscal_year
-		JOIN gdb023.fact_pre_invoice_deductions i ON m.customer_code=i.customer_code AND m.fiscal_year=i.fiscal_year
 	WHERE m.fiscal_year=2021  
 	GROUP BY m.customer_code)
 SELECT
@@ -314,11 +312,11 @@ Distribution of Gross Sales by Channel in FIscal Year 2021:
 
 | channel | gross_sales_mln  | percentage |
 | -------------------- | -----:| -----: |
-| Retailer      | 917.39       | 72.11  |
-| Direct      | 216.37    | 17.01  |
-| Distributor      | 138.38    | 10.88  |
+| Retailer      | 1219.08       | 73.23  |
+| Direct      | 257.53    | 15.47  |
+| Distributor      | 188.03    | 11.30  |
 
-- ```Retailer``` channel drives the most revenue for Atliq at roughly 72% of gross sales followed by Direct and then by Distributor channel.
+- ```Retailer``` channel drives the most revenue for Atliq at roughly 73% of gross sales followed by Direct and then by Distributor channel.
 
 <br/><br/>
 
