@@ -338,7 +338,7 @@ WHERE rank_order <= 3;
 
 #### **Result:** 
 
-The top 5 customers who received an average high pre_invoice_discount_pct for the fiscal year 2021 and in the Indian market are:
+Top 3 products in each division that have a high total_sold_quantity in the fiscal_year 2021 are:
 
 | division | product_code  | product |  total_sold_quantity | rank_order  |
 | -------------------- | -----| ----- | -------: | -------: |
