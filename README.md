@@ -8,6 +8,9 @@ However, the management noticed that they do not get enough insights to make qui
 <br/>
 <br/>
 
+![Schema](https://user-images.githubusercontent.com/103412614/222107013-b39008f7-29a4-4d6c-aee0-4fc2bb2a0250.png)
+
+
 # Task
 
 1.    Check ‘ad-hoc-requests.pdf’ - there are 10 ad hoc requests for which the business needs insights.
