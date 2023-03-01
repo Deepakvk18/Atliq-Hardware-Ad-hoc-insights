@@ -24,6 +24,8 @@ WHERE customer='Atliq Exclusive' AND region='APAC';
 
 #### **Result:** 
 
+The countries with customer ```Atliq Exclusive``` operates in ```OPAC``` region are:
+
 |    market     |
 | ------------- |
 | India         |
@@ -38,6 +40,27 @@ WHERE customer='Atliq Exclusive' AND region='APAC';
     
 
 ### 2. What is the percentage of unique product increase in 2021 vs. 2020? The final output contains these fields, [unique_products_2020 | unique_products_2021 | percentage_chg]
+
+#### **Query:**
+````sql
+WITH unique_products AS(
+SELECT 
+	(SELECT COUNT(DISTINCT product_code) FROM gdb023.fact_sales_monthly WHERE fiscal_year=2020) AS unique_products_2020,
+    (SELECT COUNT(DISTINCT product_code) FROM gdb023.fact_sales_monthly WHERE fiscal_year=2021) AS unique_products_2021
+    )
+SELECT *,
+	ROUND(100.0 * (unique_products_2021 - unique_products_2020)/unique_products_2020, 2) AS percentage_chg
+FROM unique_products;
+````
+
+#### **Result:** 
+
+The Percentage increase of unique product increase in Fiscal Year   2021 vs. 2020 is:
+
+| unique_products_2020 | unique_products_2020  | unique_products_2020 |
+| -------------------- | ----------------------| -------------------- |
+| 245                  | 334                   | 36.33                |
+
 
 
 ### 3. Provide a report with all the unique product counts for each segment and sort them in descending order of product counts. The final output contains 2 fields, [segment | product_count]
