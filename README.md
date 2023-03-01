@@ -44,7 +44,7 @@ The countries with customer ```Atliq Exclusive``` operates in ```OPAC``` region 
 #### **Query:**
 ````sql
 WITH unique_products AS(
-SELECT 
+    SELECT 
 	(SELECT COUNT(DISTINCT product_code) FROM gdb023.fact_sales_monthly WHERE fiscal_year=2020) AS unique_products_2020,
     (SELECT COUNT(DISTINCT product_code) FROM gdb023.fact_sales_monthly WHERE fiscal_year=2021) AS unique_products_2021
     )
@@ -57,13 +57,36 @@ FROM unique_products;
 
 The Percentage increase of unique product increase in Fiscal Year   2021 vs. 2020 is:
 
-| unique_products_2020 | unique_products_2020  | unique_products_2020 |
+| unique_products_2020 | unique_products_2021  | percentage_chg |
 | -------------------- | ----------------------| -------------------- |
 | 245                  | 334                   | 36.33                |
 
 
 
 ### 3. Provide a report with all the unique product counts for each segment and sort them in descending order of product counts. The final output contains 2 fields, [segment | product_count]
+
+#### **Query:**
+````sql
+SELECT 
+	segment,
+    COUNT(DISTINCT product_code) AS product_count
+FROM gdb023.dim_product
+GROUP BY segment
+ORDER BY product_count DESC;
+````
+
+#### **Result:** 
+
+The countries with customer ```Atliq Exclusive``` operates in ```OPAC``` region are:
+
+| segment | product_count  |
+| -------------------- | -----:| 
+| Notebook             | 129  |
+| Accessories          | 116  |
+| Peripherals          | 84   |
+| Desktop              | 32   |
+| Storage              | 27   |
+| Networking           | 9    |
 
 
 ### 4. Follow-up: Which segment had the most increase in unique products in 2021 vs 2020? The final output contains these fields, [segment | product_count_2020 | product_count_2021 | difference]
