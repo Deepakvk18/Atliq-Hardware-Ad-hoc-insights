@@ -8,15 +8,22 @@ However, the management noticed that they do not get enough insights to make qui
 <br/>
 <br/>
 
-![Schema](https://user-images.githubusercontent.com/103412614/222107013-b39008f7-29a4-4d6c-aee0-4fc2bb2a0250.png)
-
-
 # Task
 
 1.    Check ‘ad-hoc-requests.pdf’ - there are 10 ad hoc requests for which the business needs insights.
 2.    Run a SQL query to answer these requests. 
 <br/>
 <br/>
+
+# Schema
+
+![Schema](https://user-images.githubusercontent.com/103412614/222107013-b39008f7-29a4-4d6c-aee0-4fc2bb2a0250.png)
+
+Apart from these relationships, we also have composite key relationships:
+
+		1. fact_sales_gross_price - fact_sales_monthly => fiscal_year, product_code
+		2. fact_pre_invoice_deductions - fact_sales_monthly => fiscal_year, customer_code
+
 
 # Questions To be Answered
 
