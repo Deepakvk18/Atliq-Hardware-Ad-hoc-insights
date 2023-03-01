@@ -21,15 +21,15 @@ However, the management noticed that they do not get enough insights to make qui
         <br/>
 **Result:** <br/>
     <table>
-        <th>market</th>
-        <tr>India</tr>
-        <tr>Indonesia</tr>
-        <tr>Japan</tr>
-        <tr>Philippines</tr>
-        <tr>South Korea</tr>
-        <tr>Australia</tr>
-        <tr>New Zealand</tr>
-        <tr>Bangladesh</tr> 
+        <th><tr>market</td></th>
+        <tr><td>India</td></tr>
+        <tr><td>Indonesia</td></tr>
+        <tr><td>Japan</td></tr>
+        <tr><td>Philippines</td></tr>
+        <tr><td>South Korea</td></tr>
+        <tr><td>Australia</td></tr>
+        <tr><td>New Zealand</td></tr>
+        <tr><td>Bangladesh</td></tr> 
     </table>
     
 
